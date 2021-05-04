@@ -1,0 +1,107 @@
+div{
+	text-align:center;
+	font-family: 'Varela Round';
+}
+
+form{
+	text-align:center;
+}
+
+.room-name {
+	text-align:right;
+	margin-top:24px;
+	margin-right:24px;
+	color: white;
+}
+
+.header-content {
+	background-color: #ff6600; 
+	height:200px;
+	border: 2px solid white;
+	border-radius: 25px;
+}
+
+.body-content {
+	text-align:center;
+	font-family: 'Varela Round';
+}
+
+.success {
+	background-color: #00ff00;
+}
+
+
+.danger {
+	background-color: #f08080;
+}
+
+.crumb {
+	color:white;
+	padding:12px;
+}
+
+.crumbs {
+	background-color:white;
+	border: 2px solid #ff6600;
+	border-radius: 25px;
+}
+
+.slider-box {
+	width: 90%;
+	height:600px;
+	margin: 30px auto;
+	position: relative;
+}
+
+#slider{
+	width: 100%;
+	display: inline-flex;
+	transition: 0.7s;
+	overflow: hidden;
+}
+
+#slider img{
+	width: 100%;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+h1 {
+	text-align:center; 
+	color:#ff6600;
+	font-family: 'Varela Round';
+}
+
+select {
+  padding: 8px 16px;
+  border: 5px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+option{
+	color: #ff6600;
+}
+
+button{
+	border-radius: 12px; transition-duration: 0.4s;   
+	background-color: #ff6600;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}

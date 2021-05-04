@@ -1,0 +1,28 @@
+{% include 'includes/header.html' %}
+
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class=flashes style="text-align:center;">
+    {% for category, message in messages %}
+      <h3 class="{{ category }}">{{ message }}</h3>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+<div class="body-content">
+
+	<nav class="crumbs">
+    <ul>
+        <li class="crumb"><button><a href="register">Create room</a></button></li>
+        <li class="crumb"><button><a href="login">Enter in your room</a></button></li>
+    </ul>
+	</nav>
+
+</div>
+
+
+{% include 'includes/footer.html' %}

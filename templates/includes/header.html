@@ -1,0 +1,18 @@
+
+<header>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<div class="header-content" >
+		{% if session["roomName"] %}
+		<h3 class="room-name" >Welcome to {{ session["roomName"] }}</h3>
+		{% endif %}
+		<nav class="navbar navbar-dark primary-color">
+	      <img src="{{url_for('static', filename='images/kitten.png')}}" height="44" alt="mdb logo">
+	      <h1 style="color:white; font-size: 298%;">Exploding Kitten 2.0</h1>
+		</nav>
+	</div>
+
+</header>
+

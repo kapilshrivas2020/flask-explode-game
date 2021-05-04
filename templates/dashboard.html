@@ -1,0 +1,142 @@
+
+{% include 'includes/header.html' %}
+
+
+<body>
+
+<h1> hello {{ players["playerName"] }}! See your cards</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class=flashes style="text-align:center;">
+    {% for category, message in messages %}
+      <h3 class="{{ category }}">{{ message }}</h3>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+<div class="slider-box" >
+	<div id="slider" >
+		{% if "defuse" in players["cards"] %}
+			{% set c = players["cards"].count("defuse") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/defuse.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "skip" in players["cards"] %}
+			{% set c = players["cards"].count("skip") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/skip.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+
+		{% if "attack" in players["cards"] %}
+			{% set c = players["cards"].count("attack") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/attack.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "favor" in players["cards"] %}
+			{% set c = players["cards"].count("favor") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/favor.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "see the future" in players["cards"] %}
+			{% set c = players["cards"].count("see the future") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/see.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "shuffle" in players["cards"] %}
+			{% set c = players["cards"].count("shuffle") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/shuffle.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "rainbow" in players["cards"] %}
+			{% set c = players["cards"].count("rainbow") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/rainbow.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "doremon" in players["cards"] %}
+			{% set c = players["cards"].count("doremon") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/doremon.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "pikachu" in players["cards"] %}
+			{% set c = players["cards"].count("pikachu") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/pikachu.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+
+		{% if "nope" in players["cards"] %}
+			{% set c = players["cards"].count("nope") | int %}
+			<figure>
+				<img src="{{url_for('static', filename='images/nope.png')}}">
+				<figcaption>{{c}}</figcaption>
+			</figure>
+		{% endif %}
+	</div>
+</div>
+
+{% if not waiting %}
+	<form action="dashboard">
+		<div>
+			<select name="myDroppedCard">
+				{% for i in players["cards"] %}
+				<option><h2>{{i}}</h2></option>
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+			<button type="submit" name="submit_btn" value="submit_0"> Pick Cards </button>
+	    	<button type="submit" name="submit_btn" value="submit_1"> Drop Cards </button>
+		</div>
+	</form>
+
+{% else %}
+
+	<div>
+		<select>
+			{% for i in players["cards"] %}
+			<option><h2>{{i}}</h2></option>
+			{% endfor %}
+		</select>
+	</div>
+ 
+ 	<h1> You have to wait {{ players["playerName"] }} !!</h1>
+
+
+ 	<form action="dashboard">
+ 		<button type="submit" name="refresh" value="refresh">Refresh</button>
+ 	</form>
+{% endif %}
+
+</body>
+
+{% include 'includes/footer.html' %}
+
+
