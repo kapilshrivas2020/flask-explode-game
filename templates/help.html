@@ -1,0 +1,94 @@
+{% include 'includes/header.html' %}
+
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
+
+<body>
+<h2>Create your room and then share your room name and password with your team. Don't start the game until all players are joined because once game started then noone can join. You have to pick card on every chance and if picked card is bomb then you will die, to save yourself from bomb you will get one defuse. And read the speciality of other cards given below :</h2>
+
+<div class="row" >
+  <div class="column">
+      <div>
+        <img src="{{url_for('static', filename='images/nope.png')}}">
+        <h4>Stop any action except fou an Exploding kitten or a Defuse card. Imagine that any card beneath a Nope card never existed. You can also play a nope on another nope to negate it and create a yup, and so on. You can play a nope card at any time before an action has begun, even if it's not your turn, Any cards that have been nopped are lost. Leave them in the discard pile.</h4>
+      </div>
+
+   </div>
+
+   <div class="column">
+      <div>
+        <img src="{{url_for('static', filename='images/pikachu.png')}}" >
+        <h4>These cards are powerless on their own, but if you collect any 2 matching cat card, you can play them as a pair to steal a random card from any player. They can also be used in special combos.</h4>
+      </div>
+      
+  </div>
+
+  <div class="column" >
+      <div>
+        <img src="{{url_for('static', filename='images/favor.png')}}">
+        <h4>Force any other player to give you 1 card from their hand . They choose which card to give you.</h4>
+      </div> 
+  </div>
+
+  <div class="column" >
+      <div>
+        <img src="{{url_for('static', filename='images/defuse.png')}}" >
+        <h4>If you drew an Exploding kitten,you can play this card instead of dying, Place your Defuse card in the 
+        Discard pile.Then take the Exploding kitten, and without reordering or viewing the other cards,secretly put it back in the Draw pile anywhere you'd like. Want to hurt the player right after you? Put the kitten right on top of the deck.
+        If you'd like, hold the deck under the table so that no one else can see where you put it. Your turn is over after playing this card. </h4>
+      </div>
+  </div>
+
+  <div class="column">
+      <div>
+        <img src="{{url_for('static', filename='images/skip.png')}}" >
+        <h4>Immediately end your turn without drawing a card. 
+        IF you play a skip card then you can skip your chanse.</h4>
+      </div>
+  </div>
+</div>
+
+<div class="row" >
+  <div class="column">
+
+      <div>
+        <img src="{{url_for('static', filename='images/rainbow.png')}}" >
+        <h4>These cards are powerless on their own, but if you collect any 2 matching cat card, you can play them as a pair to steal a random card from any player. They can also be used in special combos.</h4>
+      </div>
+
+   </div>
+
+   <div class="column">
+      
+      <div>
+        <img src="{{url_for('static', filename='images/doremon.png')}}">
+        <h4>These cards are powerless on their own, but if you collect any 2 matching cat card, you can play them as a pair to steal a random card from any player. They can also be used in special combos</h4>
+      </div>
+  </div>
+
+  <div class="column" >
+      <div>
+        <img src="{{url_for('static', filename='images/see.png')}}">
+        <h4>Privately view the top 3 card from thr draw pile and put them back in the same order.Don't show the card to the other players.</h4>
+      </div>   
+  </div>
+
+  <div class="column" >
+      <div>
+        <img src="{{url_for('static', filename='images/shuffle.png')}}">
+        <h4>Shuffle the draw pile thoroughly.(Useful when you know there's an Exploding kitten coming.)</h4>
+      </div> 
+  </div>
+
+  <div class="column">
+      
+      <div>
+        <img src="{{url_for('static', filename='images/attack.png')}}" >
+        <h4>Immediately end your turn(*s) without drawing a card and force the next player to take 2 turns in a row. The victim of this card takes a turn as normal (play-or-pass then draw).Then, when their first turn is over, its their turn again. If the victim of an Attaxk card plays an attack card, their turns are immediately over, and the next player must take any remaining turns plus 2 more ;e.g 4 turns, then 6, and so on.</h4>
+      </div>
+  </div>
+</div>
+
+
+
+</body>
+{% include 'includes/footer.html' %}
