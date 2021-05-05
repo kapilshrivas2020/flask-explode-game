@@ -163,6 +163,7 @@ def register():
         d["pending"] = 0
         d["active"] = False
         d["message"] = ""
+        d["k"] = 0
         if os.path.exists('data.json'):
             with open('data.json') as data_file:
                 data = json.load(data_file)
@@ -183,6 +184,7 @@ def show_players():
     plist = []
     curr_player = {}
     index = 0
+    k = 0
     if os.path.exists('data.json'):
         with open('data.json') as data_file:
             data = json.load(data_file)
@@ -191,6 +193,7 @@ def show_players():
                     plist = data[i]["playerList"]
                     curr_player = data[i]["curr_player"]
                     index = i
+                    k= data[i]["k"]
 
     if request.args.get("refresh")=="refresh":
         return render_template('show_players.html', data=plist)
@@ -208,6 +211,7 @@ def show_players():
 def dashboard():
 
     index = 0
+    k = 0
     plist = []
     curr_player = {}
     if os.path.exists('data.json'):
@@ -218,6 +222,7 @@ def dashboard():
                     plist = data[i]["playerList"]
                     curr_player = data[i]["curr_player"]
                     index = i
+                    k = data[i]["k"]
 
     copy_data = data
     copy_data[index]["active"] = True
@@ -266,13 +271,12 @@ def dashboard():
                 flash("You just saved your life! " + name, "danger")
             else:
                 plist.remove(curr_player)
-                l = len(plist)
                 if session["player"]["playerName"]==name:
                     session["roomName"] = False
                     session["player"] = False
 
                 copy_data[index]["playerList"] = plist
-                copy_data[index]["curr_player"] = copy_data[index]["playerList"][(curr_player["pid"] + 1)%l]
+                copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k+ 1)%l]
                 copy_data[index]["message"] = name + " is out of the game. "
                 with open('data.json', 'w') as data_file:
                     json.dump(copy_data, data_file)
@@ -292,7 +296,7 @@ def dashboard():
                 json.dump(copy_data, data_file)
             return render_template('dashboard.html', players=session["player"], waiting=False)
 
-        copy_data[index]["curr_player"] = copy_data[index]["playerList"][(curr_player["pid"] + 1)%l]
+        copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k + 1)%l]
         with open('data.json', 'w') as data_file:
             json.dump(copy_data, data_file)
 
@@ -306,7 +310,7 @@ def dashboard():
 
             curr_player["cards"].remove(card)
             session["player"] = curr_player
-            copy_data[index]["curr_player"] = copy_data[index]["playerList"][(curr_player["pid"] + 1)%l]
+            copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k + 1)%l]
 
         elif request.args.get("myDroppedCard")==cards_name[2]: 
             for i in range(len(data[index]["playerList"])):
@@ -316,7 +320,7 @@ def dashboard():
             copy_data[index]["pending"] = data[index]["pending"] + 1
             curr_player["cards"].remove(cards_name[2])
             session["player"] = curr_player
-            copy_data[index]["curr_player"] = copy_data[index]["playerList"][(curr_player["pid"] + 1)%l]
+            copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k + 1)%l]
 
         elif request.args.get("myDroppedCard")==cards_name[3]:
             for i in range(len(data[index]["playerList"])):
