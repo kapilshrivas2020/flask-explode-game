@@ -17,89 +17,109 @@
 {% endwith %}
 
 
-<div class="slider-box" >
-	<div id="slider" >
-		{% if "defuse" in players["cards"] %}
-			{% set c = players["cards"].count("defuse") | int %}
-			<figure>
-				<img src="{{url_for('static', filename='images/defuse.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
+<div class="row" >
+    {% if "rainbow" in players["cards"] %}
+    <div class="column">
+		{% set c = players["cards"].count("rainbow") | int %}
+		<div>
+			<img src="{{url_for('static', filename='images/rainbow.png')}}">
+			<h4>{{c}}</h4>
+		</div>
+   </div>
+   	{% endif %}
 
-		{% if "skip" in players["cards"] %}
-			{% set c = players["cards"].count("skip") | int %}
-			<figure>
-				<img src="{{url_for('static', filename='images/skip.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
-
-
-		{% if "attack" in players["cards"] %}
-			{% set c = players["cards"].count("attack") | int %}
-			<figure>
-				<img src="{{url_for('static', filename='images/attack.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
-
-		{% if "favor" in players["cards"] %}
-			{% set c = players["cards"].count("favor") | int %}
-			<figure>
-				<img src="{{url_for('static', filename='images/favor.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
-
-		{% if "see the future" in players["cards"] %}
-			{% set c = players["cards"].count("see the future") | int %}
-			<figure>
-				<img src="{{url_for('static', filename='images/see.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
-
-		{% if "shuffle" in players["cards"] %}
-			{% set c = players["cards"].count("shuffle") | int %}
-			<figure>
-				<img src="{{url_for('static', filename='images/shuffle.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
-
-		{% if "rainbow" in players["cards"] %}
-			{% set c = players["cards"].count("rainbow") | int %}
-			<figure>
-				<img src="{{url_for('static', filename='images/rainbow.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
-
-		{% if "doremon" in players["cards"] %}
-			{% set c = players["cards"].count("doremon") | int %}
-			<figure>
+   	{% if "doremon" in players["cards"] %}
+   <div class="column">
+		{% set c = players["cards"].count("doremon") | int %}
+			<div>
 				<img src="{{url_for('static', filename='images/doremon.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
+				<h4>{{c}}</h4>
+			</div>
+   </div>
+   {% endif %}
 
-		{% if "pikachu" in players["cards"] %}
-			{% set c = players["cards"].count("pikachu") | int %}
-			<figure>
+   {% if "pikachu" in players["cards"] %}
+   <div class="column">
+		{% set c = players["cards"].count("pikachu") | int %}
+			<div>
 				<img src="{{url_for('static', filename='images/pikachu.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
+				<h4>{{c}}</h4>
+			</div>
+  </div>
+  {% endif %}
 
-		{% if "nope" in players["cards"] %}
-			{% set c = players["cards"].count("nope") | int %}
-			<figure>
+  {% if "nope" in players["cards"] %}
+  <div class="column">
+		{% set c = players["cards"].count("nope") | int %}
+			<div>
 				<img src="{{url_for('static', filename='images/nope.png')}}">
-				<figcaption>{{c}}</figcaption>
-			</figure>
-		{% endif %}
-	</div>
+				<h4>{{c}}</h4>
+			</div>  	
+  </div>
+  {% endif %}
+
+  {% if "see the future" in players["cards"] %}
+  <div class="column" >
+		{% set c = players["cards"].count("see the future") | int %}
+			<div>
+				<img src="{{url_for('static', filename='images/see.png')}}">
+				<h4>{{c}}</h4>
+			</div>
+  </div>
+  {% endif %}
+
+
+  {% if "shuffle" in players["cards"] %}
+  <div class="column">
+		{% set c = players["cards"].count("shuffle") | int %}
+			<div>
+				<img src="{{url_for('static', filename='images/shuffle.png')}}">
+				<h4>{{c}}</h4>
+			</div>
+  </div>
+  {% endif %}
+
+  {% if "attack" in players["cards"] %}
+  <div class="column" >
+		{% set c = players["cards"].count("attack") | int %}
+			<div>
+				<img src="{{url_for('static', filename='images/attack.png')}}">
+				<h4>{{c}}</h4>
+			</div>
+  </div>
+  {% endif %}
+
+
+  {% if "favor" in players["cards"] %}
+  <div class="column">
+		{% set c = players["cards"].count("favor") | int %}
+			<div>
+				<img src="{{url_for('static', filename='images/favor.png')}}">
+				<h4>{{c}}</h4>
+			</div>
+  </div>
+  {% endif %}
+
+  {% if "defuse" in players["cards"] %}
+  <div class="column">
+		{% set c = players["cards"].count("defuse") | int %}
+			<div>
+				<img src="{{url_for('static', filename='images/defuse.png')}}">
+				<h4>{{c}}</h4>
+			</div>
+  </div>
+  {% endif %}
+
+
+  {% if "skip" in players["cards"] %}
+  <div class="column">
+		{% set c = players["cards"].count("skip") | int %}
+			<div>
+				<img src="{{url_for('static', filename='images/skip.png')}}">
+				<h4>{{c}}</h4>
+			</div>
+  </div>
+  {% endif %}
 </div>
 
 {% if not waiting %}
