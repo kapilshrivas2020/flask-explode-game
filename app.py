@@ -223,7 +223,7 @@ def dashboard():
     copy_data[index]["active"] = True
 
     if data[index]["message"]!="":
-        flash(data[index]["message"], "danger")
+        flash(data[index]["message"], "success")
         copy_data[index]["message"] = ""
 
     for i in range(len(plist)):
@@ -250,6 +250,7 @@ def dashboard():
         return render_template('message.html',won=True, name=curr_player["playerName"])
 
     if request.args.get("submit_btn")=="submit_0":
+        copy_data[index]["message"] = curr_player["playerName"] + " picked the card !"
         r =  copy_data[index]["roomCards"].pop()
         if len(data[index]["roomCards"])==0:
             copy_data[index]["roomCards"] = cp_cards
@@ -297,6 +298,7 @@ def dashboard():
 
     elif request.args.get("submit_btn")=="submit_1":
         card = request.args.get("myDroppedCard")
+        copy_data[index]["message"] = curr_player["playerName"] + " dropped the card " + card
         if request.args.get("myDroppedCard")== cards_name[1] or request.args.get("myDroppedCard")== cards_name[10]:
             for i in range(len(data[index]["playerList"])):
                 if curr_player["pid"] == data[index]["playerList"][i]["pid"]:
