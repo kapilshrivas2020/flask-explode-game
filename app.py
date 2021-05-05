@@ -266,13 +266,13 @@ def dashboard():
             else:
                 plist.remove(curr_player)
                 l = len(plist)
-                curr_player = plist[0]
                 if session["player"]["playerName"]==name:
                     session["roomName"] = False
                     session["player"] = False
 
                 copy_data[index]["playerList"] = plist
-                copy_data[index]["curr_player"] = curr_player
+                copy_data[index]["curr_player"] = copy_data[index]["playerList"][(curr_player["pid"] + 1)%l]
+                copy_data[index]["message"] = name + " is out of the game. "
                 with open('data.json', 'w') as data_file:
                     json.dump(copy_data, data_file)
 
