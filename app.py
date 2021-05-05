@@ -477,6 +477,9 @@ def favor():
         return render_template("dashboard.html", players=session["player"], waiting=False)
     return render_template("favor.html")
 
+@app.route("/help")
+def help():
+    return render_template("help.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
