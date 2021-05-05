@@ -276,6 +276,7 @@ def dashboard():
                     session["player"] = False
 
                 copy_data[index]["playerList"] = plist
+                copy_data[index]["k"] = k+1
                 copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k+ 1)%l]
                 copy_data[index]["message"] = name + " is out of the game. "
                 with open('data.json', 'w') as data_file:
@@ -296,6 +297,7 @@ def dashboard():
                 json.dump(copy_data, data_file)
             return render_template('dashboard.html', players=session["player"], waiting=False)
 
+        copy_data[index]["k"] = k+1
         copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k + 1)%l]
         with open('data.json', 'w') as data_file:
             json.dump(copy_data, data_file)
@@ -310,6 +312,7 @@ def dashboard():
 
             curr_player["cards"].remove(card)
             session["player"] = curr_player
+            copy_data[index]["k"] = k+1
             copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k + 1)%l]
 
         elif request.args.get("myDroppedCard")==cards_name[2]: 
@@ -320,6 +323,7 @@ def dashboard():
             copy_data[index]["pending"] = data[index]["pending"] + 1
             curr_player["cards"].remove(cards_name[2])
             session["player"] = curr_player
+            copy_data[index]["k"] = k+1
             copy_data[index]["curr_player"] = copy_data[index]["playerList"][(k + 1)%l]
 
         elif request.args.get("myDroppedCard")==cards_name[3]:
